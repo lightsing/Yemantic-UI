@@ -25,3 +25,17 @@ pub fn use_option_and_key<V: AsRef<str>, K: AsRef<str>>(val: Option<V>, key: K) 
         vec![]
     }
 }
+
+#[macro_export]
+macro_rules! cx {
+    () => { vec![] };
+    ($($e:expr), *) => {
+        {
+            let mut __gnerated_classes = vec![];
+            $(
+                __gnerated_classes.append(&mut $e);
+            )*
+            __gnerated_classes
+        }
+    }
+}

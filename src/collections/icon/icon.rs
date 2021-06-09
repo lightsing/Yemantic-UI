@@ -1,5 +1,6 @@
 use yew::prelude::*;
 
+use crate::cx;
 use crate::sui;
 use crate::helper::*;
 
@@ -92,20 +93,8 @@ pub struct IconProps {
     /// Children element.
     #[prop_or_default]
     pub children: Children,
-}
-
-#[macro_export]
-macro_rules! cx {
-    () => { vec![] };
-    ($($e:expr), *) => {
-        {
-            let mut __gnerated_classes = vec![];
-            $(
-                __gnerated_classes.append(&mut $e);
-            )*
-            __gnerated_classes
-        }
-    }
+    #[prop_or_default]
+    pub onclick: Callback<MouseEvent>,
 }
 
 impl Component for Icon {
@@ -168,7 +157,10 @@ impl Component for Icon {
 
     fn view(&self) -> Html {
         html!{
-            <@{ self.props.root.clone() } class=classes!(self.classes.as_slice())>
+            <@{ self.props.root.clone() }
+              class=classes!(self.classes.as_slice())
+              onclick=&self.props.onclick
+            >
               { self.props.children.clone() }
             </@>
         }
