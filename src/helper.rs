@@ -10,17 +10,17 @@ pub fn use_key<K: AsRef<str>>(val: bool, key: K) -> Vec<String> {
     }
 }
 
-pub fn use_option<V: AsRef<str>>(val: Option<V>) -> Vec<String> {
+pub fn use_option<V: AsRef<str>>(val: &Option<V>) -> Vec<String> {
     if val.is_some() {
-        vec![val.unwrap().as_ref().to_owned()]
+        vec![val.as_ref().unwrap().as_ref().to_owned()]
     } else {
         vec![]
     }
 }
 
-pub fn use_option_and_key<V: AsRef<str>, K: AsRef<str>>(val: Option<V>, key: K) -> Vec<String> {
+pub fn use_option_and_key<V: AsRef<str>, K: AsRef<str>>(val: &Option<V>, key: K) -> Vec<String> {
     if val.is_some() {
-        vec![val.unwrap().as_ref().to_owned(), key.as_ref().to_owned()]
+        vec![val.as_ref().unwrap().as_ref().to_owned(), key.as_ref().to_owned()]
     } else {
         vec![]
     }

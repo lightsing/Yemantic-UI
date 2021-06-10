@@ -102,57 +102,26 @@ impl Component for Icon {
     type Properties = IconProps;
 
     fn create(props: Self::Properties, link: ComponentLink<Self>) -> Self {
-        let classes = {
-            let Self::Properties {
-                color,
-                name,
-                size,
-                bordered,
-                circular,
-                disabled,
-                fitted,
-                inverted,
-                link,
-                loading,
-                corner,
-                flipped,
-                rotated,
-                class_name,
-                ..
-            } = props.clone();
-
-            cx!(
-                use_option(color),
-                use_str(name),
-                use_option(size),
-                use_key(bordered, "bordered"),
-                use_key(circular, "circular"),
-                use_key(disabled, "disabled"),
-                use_key(fitted, "fitted"),
-                use_key(inverted, "inverted"),
-                use_key(link, "link"),
-                use_key(loading, "loading"),
-                use_option_and_key(corner, "corner"),
-                use_option_and_key(flipped, "flipped"),
-                use_option_and_key(rotated, "rotated"),
-                use_str("icon"),
-                use_option(class_name)
-            )
-        };
-
+        let classes = props.derive_classes();
         Self {
             link,
             props,
-            classes
+            classes,
         }
     }
 
-    fn update(&mut self, msg: Self::Message) -> ShouldRender {
+    fn update(&mut self, _msg: Self::Message) -> ShouldRender {
         false
     }
 
-    fn change(&mut self, _props: Self::Properties) -> ShouldRender {
-        false
+    fn change(&mut self, props: Self::Properties) -> ShouldRender {
+        if props != self.props {
+            self.props = props;
+            self.classes = self.props.derive_classes();
+            true
+        } else {
+            false
+        }
     }
 
     fn view(&self) -> Html {
@@ -164,6 +133,46 @@ impl Component for Icon {
               { self.props.children.clone() }
             </@>
         }
+    }
+}
+
+impl IconProps {
+    fn derive_classes(&self) -> Vec<String> {
+        let Self {
+            color,
+            name,
+            size,
+            bordered,
+            circular,
+            disabled,
+            fitted,
+            inverted,
+            link,
+            loading,
+            corner,
+            flipped,
+            rotated,
+            class_name,
+            ..
+        } = self;
+
+        cx!(
+            use_option(color),
+            use_str(name),
+            use_option(size),
+            use_key(*bordered, "bordered"),
+            use_key(*circular, "circular"),
+            use_key(*disabled, "disabled"),
+            use_key(*fitted, "fitted"),
+            use_key(*inverted, "inverted"),
+            use_key(*link, "link"),
+            use_key(*loading, "loading"),
+            use_option_and_key(corner, "corner"),
+            use_option_and_key(flipped, "flipped"),
+            use_option_and_key(rotated, "rotated"),
+            use_str("icon"),
+            use_option(class_name)
+        )
     }
 }
 
