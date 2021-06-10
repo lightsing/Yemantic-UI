@@ -135,6 +135,8 @@ impl Component for Icon {
             <@{ self.props.root.clone() }
               class=classes!(self.classes.as_slice())
               onclick=self.link.callback(|e| e)
+              aria-hidden=self.props.get_aria_hidden()
+              aria-label=self.props.aria_label.clone()
             >
               { self.props.children.clone() }
             </@>
@@ -179,6 +181,14 @@ impl IconProps {
             use_str("icon"),
             use_option(class_name)
         )
+    }
+
+    fn get_aria_hidden(&self) -> Option<String> {
+        if self.aria_label.is_none() {
+            return Some("true".to_string());
+        } else {
+            self.aria_hidden.clone()
+        }
     }
 }
 
