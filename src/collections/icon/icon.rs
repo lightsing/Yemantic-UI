@@ -4,6 +4,7 @@ use crate::cx;
 use crate::sui;
 use crate::helper::*;
 
+/// An icon is a glyph used to represent something else.
 pub struct Icon {
     link: ComponentLink<Self>,
     props: IconProps,
@@ -98,7 +99,7 @@ pub struct IconProps {
 }
 
 impl Component for Icon {
-    type Message = ();
+    type Message = MouseEvent;
     type Properties = IconProps;
 
     fn create(props: Self::Properties, link: ComponentLink<Self>) -> Self {
@@ -110,7 +111,12 @@ impl Component for Icon {
         }
     }
 
-    fn update(&mut self, _msg: Self::Message) -> ShouldRender {
+    fn update(&mut self, event: Self::Message) -> ShouldRender {
+        if self.props.disabled {
+            event.prevent_default();
+        } else {
+            self.props.onclick.emit(event);
+        }
         false
     }
 
@@ -128,7 +134,7 @@ impl Component for Icon {
         html!{
             <@{ self.props.root.clone() }
               class=classes!(self.classes.as_slice())
-              onclick=&self.props.onclick
+              onclick=self.link.callback(|e| e)
             >
               { self.props.children.clone() }
             </@>
