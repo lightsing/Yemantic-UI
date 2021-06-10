@@ -1,0 +1,3 @@
+(function() {var implementors = {};
+implementors["yemantic_ui"] = [{"text":"impl Component for <a class=\"struct\" href=\"yemantic_ui/collections/icon/struct.Icon.html\" title=\"struct yemantic_ui::collections::icon::Icon\">Icon</a>","synthetic":false,"types":["yemantic_ui::collections::icon::icon::Icon"]},{"text":"impl Component for <a class=\"struct\" href=\"yemantic_ui/collections/icon/struct.IconGroup.html\" title=\"struct yemantic_ui::collections::icon::IconGroup\">IconGroup</a>","synthetic":false,"types":["yemantic_ui::collections::icon::icon_group::IconGroup"]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

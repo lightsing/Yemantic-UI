@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["IconCorner","Display an icon on top of another icon in corner. Defaults to `BottomRight`."],["IconRotate",""],["IconSize",""]],"struct":[["Icon","An icon is a glyph used to represent something else."],["IconGroup","Several icons can be used together as a group."],["IconGroupProps",""],["IconProps",""]]});
