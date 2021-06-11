@@ -5,4 +5,5 @@ authors = ["lightsing <light.tsing@gmail.com>"]
 edition = "2018"
 
 [dependencies]
+either = "1.6"
 yew = "0.18"

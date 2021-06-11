@@ -3,6 +3,7 @@ use yew::prelude::*;
 use crate::cx;
 use crate::sui;
 use crate::helper::*;
+use either::Either;
 
 /// An icon is a glyph used to represent something else.
 pub struct Icon {
@@ -57,8 +58,8 @@ pub struct IconProps {
     #[prop_or_else(|| None)]
     pub color: Option<sui::Colors>,
     /// Icons can display a smaller corner icon.
-    #[prop_or_else(|| None)]
-    pub corner: Option<IconCorner>,
+    #[prop_or_else(|| Either::Left(false))]
+    pub corner: Either<bool, IconCorner>,
     /// Show that the icon is inactive.
     #[prop_or(false)]
     pub disabled: bool,
@@ -175,7 +176,7 @@ impl IconProps {
             use_key(*inverted, "inverted"),
             use_key(*link, "link"),
             use_key(*loading, "loading"),
-            use_option_and_key(corner, "corner"),
+            use_key_or_option_and_key(corner, "corner"),
             use_option_and_key(flipped, "flipped"),
             use_option_and_key(rotated, "rotated"),
             use_str("icon"),
