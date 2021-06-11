@@ -16,6 +16,18 @@ pub enum Colors {
 }
 
 #[derive(Copy, Clone, Debug, PartialEq, Eq, Hash)]
+pub enum Sizes {
+    Mini,
+    Tiny,
+    Small,
+    Medium,
+    Large,
+    Big,
+    Huge,
+    Massive,
+}
+
+#[derive(Copy, Clone, Debug, PartialEq, Eq, Hash)]
 pub enum Flip {
     Horizontally,
     Vertically
@@ -43,6 +55,29 @@ impl From<Colors> for &'static str {
 }
 
 impl AsRef<str> for Colors {
+    fn as_ref(&self) -> &str {
+        (*self).into()
+    }
+}
+
+impl From<Sizes> for &'static str {
+    fn from(i: Sizes) -> Self {
+        use Sizes::*;
+
+        match i {
+            Mini => "mini",
+            Tiny => "tiny",
+            Small => "small",
+            Medium => "medium",
+            Large => "large",
+            Big => "big",
+            Huge => "huge",
+            Massive => "massive",
+        }
+    }
+}
+
+impl AsRef<str> for Sizes {
     fn as_ref(&self) -> &str {
         (*self).into()
     }
