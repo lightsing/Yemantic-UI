@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["LabelAttachedPosition",""],["LabelCorner",""],["LabelEvent",""],["LabelPointing",""],["LabelRibbon",""]],"struct":[["Label","A label displays content classification."],["LabelProps",""]]});

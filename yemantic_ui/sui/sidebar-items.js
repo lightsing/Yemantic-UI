@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Colors",""],["Flip",""]]});
+initSidebarItems({"enum":[["Colors",""],["Flip",""],["Float",""],["Sizes",""]]});

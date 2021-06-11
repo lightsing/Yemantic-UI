@@ -258,13 +258,13 @@
 <span id="255">255</span>
 <span id="256">256</span>
 <span id="257">257</span>
-<span id="258">258</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="kw">use</span> <span class="ident">yew</span>::<span class="ident">prelude</span>::<span class="kw-2">*</span>;
 
 <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">cx</span>;
 <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">sui</span>;
 <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">helper</span>::<span class="kw-2">*</span>;
+<span class="kw">use</span> <span class="ident">either</span>::<span class="ident">Either</span>;
 
 <span class="doccomment">/// An icon is a glyph used to represent something else.</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Icon</span> {
@@ -294,7 +294,6 @@
     <span class="ident">Mini</span>,
     <span class="ident">Tiny</span>,
     <span class="ident">Small</span>,
-    <span class="ident">Medium</span>,
     <span class="ident">Large</span>,
     <span class="ident">Big</span>,
     <span class="ident">Huge</span>,
@@ -319,8 +318,8 @@
     <span class="attribute">#[<span class="ident">prop_or_else</span>(<span class="op">|</span><span class="op">|</span> <span class="prelude-val">None</span>)]</span>
     <span class="kw">pub</span> <span class="ident">color</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">sui</span>::<span class="ident">Colors</span><span class="op">&gt;</span>,
     <span class="doccomment">/// Icons can display a smaller corner icon.</span>
-    <span class="attribute">#[<span class="ident">prop_or_else</span>(<span class="op">|</span><span class="op">|</span> <span class="prelude-val">None</span>)]</span>
-    <span class="kw">pub</span> <span class="ident">corner</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">IconCorner</span><span class="op">&gt;</span>,
+    <span class="attribute">#[<span class="ident">prop_or_else</span>(<span class="op">|</span><span class="op">|</span> <span class="ident">Either</span>::<span class="ident">Left</span>(<span class="bool-val">false</span>))]</span>
+    <span class="kw">pub</span> <span class="ident">corner</span>: <span class="ident">Either</span><span class="op">&lt;</span><span class="ident">bool</span>, <span class="ident">IconCorner</span><span class="op">&gt;</span>,
     <span class="doccomment">/// Show that the icon is inactive.</span>
     <span class="attribute">#[<span class="ident">prop_or</span>(<span class="bool-val">false</span>)]</span>
     <span class="kw">pub</span> <span class="ident">disabled</span>: <span class="ident">bool</span>,
@@ -437,7 +436,7 @@
             <span class="ident">use_key</span>(<span class="kw-2">*</span><span class="ident">inverted</span>, <span class="string">&quot;inverted&quot;</span>),
             <span class="ident">use_key</span>(<span class="kw-2">*</span><span class="ident">link</span>, <span class="string">&quot;link&quot;</span>),
             <span class="ident">use_key</span>(<span class="kw-2">*</span><span class="ident">loading</span>, <span class="string">&quot;loading&quot;</span>),
-            <span class="ident">use_option_and_key</span>(<span class="ident">corner</span>, <span class="string">&quot;corner&quot;</span>),
+            <span class="ident">use_key_or_option_and_key</span>(<span class="ident">corner</span>, <span class="string">&quot;corner&quot;</span>),
             <span class="ident">use_option_and_key</span>(<span class="ident">flipped</span>, <span class="string">&quot;flipped&quot;</span>),
             <span class="ident">use_option_and_key</span>(<span class="ident">rotated</span>, <span class="string">&quot;rotated&quot;</span>),
             <span class="ident">use_str</span>(<span class="string">&quot;icon&quot;</span>),
@@ -504,7 +503,6 @@
             <span class="ident">Mini</span> <span class="op">=</span><span class="op">&gt;</span> <span class="string">&quot;mini&quot;</span>,
             <span class="ident">Tiny</span> <span class="op">=</span><span class="op">&gt;</span> <span class="string">&quot;tiny&quot;</span>,
             <span class="ident">Small</span> <span class="op">=</span><span class="op">&gt;</span> <span class="string">&quot;small&quot;</span>,
-            <span class="ident">Medium</span> <span class="op">=</span><span class="op">&gt;</span> <span class="string">&quot;medium&quot;</span>,
             <span class="ident">Large</span> <span class="op">=</span><span class="op">&gt;</span> <span class="string">&quot;large&quot;</span>,
             <span class="ident">Big</span> <span class="op">=</span><span class="op">&gt;</span> <span class="string">&quot;big&quot;</span>,
             <span class="ident">Huge</span> <span class="op">=</span><span class="op">&gt;</span> <span class="string">&quot;huge&quot;</span>,
