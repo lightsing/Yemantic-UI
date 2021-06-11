@@ -33,6 +33,12 @@ pub enum Flip {
     Vertically
 }
 
+#[derive(Copy, Clone, Debug, PartialEq, Eq, Hash)]
+pub enum Float {
+    Left,
+    Right
+}
+
 impl From<Colors> for &'static str {
     fn from(c: Colors) -> Self {
         use Colors::*;
@@ -95,6 +101,23 @@ impl From<Flip> for &'static str {
 }
 
 impl AsRef<str> for Flip {
+    fn as_ref(&self) -> &str {
+        (*self).into()
+    }
+}
+
+impl From<Float> for &'static str {
+    fn from(f: Float) -> Self {
+        use Float::*;
+
+        match f {
+            Left => "left",
+            Right => "right",
+        }
+    }
+}
+
+impl AsRef<str> for Float {
     fn as_ref(&self) -> &str {
         (*self).into()
     }
