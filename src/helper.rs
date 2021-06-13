@@ -43,6 +43,14 @@ pub fn use_key_or_option_and_key<V: AsRef<str>, K: AsRef<str>>(val: &Either<bool
     }
 }
 
+pub fn use_text_align<V: AsRef<str>>(val: V) -> Vec<String> {
+    if val.as_ref() == "justified" {
+        vec!["justified".to_string()]
+    } else {
+        use_option_and_key(&Some(val), "aligned")
+    }
+}
+
 #[macro_export]
 macro_rules! cx {
     () => { vec![] };
