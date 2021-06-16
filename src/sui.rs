@@ -39,6 +39,14 @@ pub enum Float {
     Right
 }
 
+#[derive(Copy, Clone, Debug, PartialEq, Eq, Hash)]
+pub enum TextAlign {
+    Left,
+    Right,
+    Center,
+    Justified
+}
+
 impl From<Colors> for &'static str {
     fn from(c: Colors) -> Self {
         use Colors::*;
@@ -113,6 +121,19 @@ impl From<Float> for &'static str {
         match f {
             Left => "left",
             Right => "right",
+        }
+    }
+}
+
+impl From<TextAlign> for &'static str {
+    fn from(t: TextAlign) -> Self {
+        use TextAlign::*;
+
+        match t {
+            Left => "left",
+            Right => "right",
+            Center => "center",
+            Justified => "justified",
         }
     }
 }
