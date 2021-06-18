@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["button",""],["icon",""],["label",""]],"struct":[["Icon","An icon is a glyph used to represent something else."],["IconGroup","Several icons can be used together as a group."]]});
+initSidebarItems({"mod":[["button",""],["container",""],["icon",""],["label",""]],"struct":[["Container",""],["Icon","An icon is a glyph used to represent something else."],["IconGroup","Several icons can be used together as a group."]]});

@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/collections/button/button.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>button.rs - source</title><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../../storage.js"></script><script src="../../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg">
 <link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../../yemantic_ui/index.html'><div class='logo-container rust-logo'><img src='../../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><script src="../../../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
+<link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../../yemantic_ui/index.html'><div class='logo-container rust-logo'><img src='../../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
                 <a id="settings-menu" href="../../../../settings.html"><img src="../../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
@@ -426,12 +426,12 @@
 <span id="423">423</span>
 <span id="424">424</span>
 </pre><div class="example-wrap"><pre class="rust ">
-<span class="kw">use</span> <span class="ident">either</span>::<span class="ident">Either</span>;
-<span class="kw">use</span> <span class="ident">yew</span>::<span class="ident">prelude</span>::<span class="kw-2">*</span>;
+<span class="kw">use</span> <span class="ident">either::Either</span>;
+<span class="kw">use</span> <span class="ident">yew::prelude</span>::<span class="kw-2">*</span>;
 
 <span class="kw">use</span> <span class="kw">crate</span>::{<span class="ident">cx</span>, <span class="ident">sui</span>};
-<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">helper</span>::<span class="kw-2">*</span>;
-<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">collections</span>::{<span class="ident">Icon</span>, <span class="ident">Label</span>};
+<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::helper</span>::<span class="kw-2">*</span>;
+<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::collections</span>::{<span class="ident">Icon</span>, <span class="ident">Label</span>};
 
 <span class="doccomment">/// A Button indicates a possible user action.</span>
 <span class="doccomment">/// Also see [`Form`], [`Icon`](crate::collections::Icon), [`Label`]</span>
@@ -470,10 +470,10 @@
     <span class="attribute">#[<span class="ident">prop_or</span>(<span class="bool-val">false</span>)]</span>
     <span class="kw">pub</span> <span class="ident">active</span>: <span class="ident">bool</span>,
     <span class="doccomment">/// A button can animate to show hidden content.</span>
-    <span class="attribute">#[<span class="ident">prop_or_else</span>(<span class="op">|</span><span class="op">|</span> <span class="ident">Either</span>::<span class="ident">Left</span>(<span class="bool-val">false</span>))]</span>
+    <span class="attribute">#[<span class="ident">prop_or_else</span>(<span class="op">|</span><span class="op">|</span> <span class="ident">Either::Left</span>(<span class="bool-val">false</span>))]</span>
     <span class="kw">pub</span> <span class="ident">animated</span>: <span class="ident">Either</span><span class="op">&lt;</span><span class="ident">bool</span>, <span class="ident">ButtonAnimationType</span><span class="op">&gt;</span>,
     <span class="doccomment">/// A button can be attached to other content.</span>
-    <span class="attribute">#[<span class="ident">prop_or_else</span>(<span class="op">|</span><span class="op">|</span> <span class="ident">Either</span>::<span class="ident">Left</span>(<span class="bool-val">false</span>))]</span>
+    <span class="attribute">#[<span class="ident">prop_or_else</span>(<span class="op">|</span><span class="op">|</span> <span class="ident">Either::Left</span>(<span class="bool-val">false</span>))]</span>
     <span class="kw">pub</span> <span class="ident">attached</span>: <span class="ident">Either</span><span class="op">&lt;</span><span class="ident">bool</span>, <span class="ident">ButtonAttachedPosition</span><span class="op">&gt;</span>,
     <span class="doccomment">/// A basic button is less pronounced.</span>
     <span class="attribute">#[<span class="ident">prop_or</span>(<span class="bool-val">false</span>)]</span>
@@ -489,7 +489,7 @@
     <span class="kw">pub</span> <span class="ident">class_name</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span>,
     <span class="doccomment">/// A button can have different colors</span>
     <span class="attribute">#[<span class="ident">prop_or_else</span>(<span class="op">|</span><span class="op">|</span> <span class="prelude-val">None</span>)]</span>
-    <span class="kw">pub</span> <span class="ident">color</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">sui</span>::<span class="ident">Colors</span><span class="op">&gt;</span>,
+    <span class="kw">pub</span> <span class="ident">color</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">sui::Colors</span><span class="op">&gt;</span>,
     <span class="doccomment">/// A button can reduce its padding to fit into tighter spaces.</span>
     <span class="attribute">#[<span class="ident">prop_or</span>(<span class="bool-val">false</span>)]</span>
     <span class="kw">pub</span> <span class="ident">compact</span>: <span class="ident">bool</span>,
@@ -501,7 +501,7 @@
     <span class="kw">pub</span> <span class="ident">disabled</span>: <span class="ident">bool</span>,
     <span class="doccomment">/// A button can be aligned to the left or right of its container.</span>
     <span class="attribute">#[<span class="ident">prop_or_else</span>(<span class="op">|</span><span class="op">|</span> <span class="prelude-val">None</span>)]</span>
-    <span class="kw">pub</span> <span class="ident">floated</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">sui</span>::<span class="ident">Float</span><span class="op">&gt;</span>,
+    <span class="kw">pub</span> <span class="ident">floated</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">sui::Float</span><span class="op">&gt;</span>,
     <span class="doccomment">/// A button can take the width of its container.</span>
     <span class="attribute">#[<span class="ident">prop_or</span>(<span class="bool-val">false</span>)]</span>
     <span class="kw">pub</span> <span class="ident">fluid</span>: <span class="ident">bool</span>,
@@ -539,7 +539,7 @@
     <span class="kw">pub</span> <span class="ident">secondary</span>: <span class="ident">bool</span>,
     <span class="doccomment">/// A button can have different sizes.</span>
     <span class="attribute">#[<span class="ident">prop_or_else</span>(<span class="op">|</span><span class="op">|</span> <span class="prelude-val">None</span>)]</span>
-    <span class="kw">pub</span> <span class="ident">size</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">sui</span>::<span class="ident">Sizes</span><span class="op">&gt;</span>,
+    <span class="kw">pub</span> <span class="ident">size</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">sui::Sizes</span><span class="op">&gt;</span>,
     <span class="doccomment">/// A button can receive focus.</span>
     <span class="attribute">#[<span class="ident">prop_or_else</span>(<span class="op">|</span><span class="op">|</span> <span class="prelude-val">None</span>)]</span>
     <span class="kw">pub</span> <span class="ident">tab_index</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">isize</span><span class="op">&gt;</span>,
@@ -552,15 +552,15 @@
     <span class="kw">type</span> <span class="ident">Message</span> <span class="op">=</span> <span class="ident">MouseEvent</span>;
     <span class="kw">type</span> <span class="ident">Properties</span> <span class="op">=</span> <span class="ident">ButtonProps</span>;
 
-    <span class="kw">fn</span> <span class="ident">create</span>(<span class="ident">props</span>: <span class="self">Self</span>::<span class="ident">Properties</span>, <span class="ident">link</span>: <span class="ident">ComponentLink</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">fn</span> <span class="ident">create</span>(<span class="ident">props</span>: <span class="self">Self</span><span class="ident">::Properties</span>, <span class="ident">link</span>: <span class="ident">ComponentLink</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="self">Self</span> {
             <span class="ident">link</span>,
             <span class="ident">props</span>,
-            <span class="ident">button_ref</span>: <span class="ident">NodeRef</span>::<span class="ident">default</span>()
+            <span class="ident">button_ref</span>: <span class="ident">NodeRef::default</span>()
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">update</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">event</span>: <span class="self">Self</span>::<span class="ident">Message</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">ShouldRender</span> {
+    <span class="kw">fn</span> <span class="ident">update</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">event</span>: <span class="self">Self</span><span class="ident">::Message</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">ShouldRender</span> {
         <span class="kw">if</span> <span class="self">self</span>.<span class="ident">props</span>.<span class="ident">disabled</span> {
             <span class="ident">event</span>.<span class="ident">prevent_default</span>();
         } <span class="kw">else</span> {
@@ -569,7 +569,7 @@
         <span class="bool-val">false</span>
     }
 
-    <span class="kw">fn</span> <span class="ident">change</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">props</span>: <span class="self">Self</span>::<span class="ident">Properties</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">ShouldRender</span> {
+    <span class="kw">fn</span> <span class="ident">change</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">props</span>: <span class="self">Self</span><span class="ident">::Properties</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">ShouldRender</span> {
         <span class="kw">if</span> <span class="ident">props</span> <span class="op">!</span><span class="op">=</span> <span class="self">self</span>.<span class="ident">props</span> {
             <span class="self">self</span>.<span class="ident">props</span> <span class="op">=</span> <span class="ident">props</span>;
             <span class="bool-val">true</span>
@@ -582,19 +582,19 @@
     <span class="kw">fn</span> <span class="ident">view</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Html</span> {
         <span class="kw">let</span> <span class="ident">root_element</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">props</span>.<span class="ident">get_element_type</span>();
         <span class="kw">let</span> <span class="ident">aria_pressed</span> <span class="op">=</span> <span class="kw">if</span> <span class="self">self</span>.<span class="ident">props</span>.<span class="ident">toggle</span> {
-            <span class="prelude-val">Some</span>(<span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;{}&quot;</span>, <span class="self">self</span>.<span class="ident">props</span>.<span class="ident">active</span>))
+            <span class="prelude-val">Some</span>(<span class="macro">format!</span>(<span class="string">&quot;{}&quot;</span>, <span class="self">self</span>.<span class="ident">props</span>.<span class="ident">active</span>))
         } <span class="kw">else</span> {
             <span class="prelude-val">None</span>
         };
-        <span class="kw">let</span> <span class="ident">tab_index</span> <span class="op">=</span> <span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;{}&quot;</span>, <span class="self">self</span>.<span class="ident">props</span>.<span class="ident">get_tab_index</span>());
+        <span class="kw">let</span> <span class="ident">tab_index</span> <span class="op">=</span> <span class="macro">format!</span>(<span class="string">&quot;{}&quot;</span>, <span class="self">self</span>.<span class="ident">props</span>.<span class="ident">get_tab_index</span>());
         <span class="kw">if</span> <span class="op">!</span><span class="self">self</span>.<span class="ident">props</span>.<span class="ident">label</span>.<span class="ident">is_empty</span>() {
-            <span class="kw">let</span> <span class="ident">button_classes</span> <span class="op">=</span> <span class="macro">cx</span><span class="macro">!</span>(
+            <span class="kw">let</span> <span class="ident">button_classes</span> <span class="op">=</span> <span class="macro">cx!</span>(
                 <span class="ident">use_str</span>(<span class="string">&quot;ui&quot;</span>),
                 <span class="self">self</span>.<span class="ident">props</span>.<span class="ident">derive_base_classes</span>(),
                 <span class="ident">use_str</span>(<span class="string">&quot;button&quot;</span>),
                 <span class="ident">use_option</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">props</span>.<span class="ident">class_name</span>)
             );
-            <span class="kw">let</span> <span class="ident">container_classes</span> <span class="op">=</span> <span class="macro">cx</span><span class="macro">!</span>(
+            <span class="kw">let</span> <span class="ident">container_classes</span> <span class="op">=</span> <span class="macro">cx!</span>(
                 <span class="ident">use_str</span>(<span class="string">&quot;ui&quot;</span>),
                 <span class="self">self</span>.<span class="ident">props</span>.<span class="ident">derive_labeled_class</span>(),
                 <span class="ident">use_str</span>(<span class="string">&quot;button&quot;</span>),
@@ -603,21 +603,21 @@
             );
 
 
-            <span class="macro">html</span><span class="macro">!</span> {
+            <span class="macro">html!</span> {
                 <span class="op">&lt;</span>@{ <span class="ident">root_element</span> }
-                  <span class="ident">class</span><span class="op">=</span><span class="macro">classes</span><span class="macro">!</span>(<span class="ident">container_classes</span>.<span class="ident">as_slice</span>())
+                  <span class="ident">class</span><span class="op">=</span><span class="macro">classes!</span>(<span class="ident">container_classes</span>.<span class="ident">as_slice</span>())
                   <span class="ident">onclick</span><span class="op">=</span><span class="self">self</span>.<span class="ident">link</span>.<span class="ident">callback</span>(<span class="op">|</span><span class="ident">e</span><span class="op">|</span> <span class="ident">e</span>)
                 <span class="op">&gt;</span>
                   {
-                      <span class="kw">if</span> <span class="self">self</span>.<span class="ident">props</span>.<span class="ident">label_position</span> <span class="op">=</span><span class="op">=</span> <span class="ident">ButtonLabelPosition</span>::<span class="ident">Left</span> <span class="op">&amp;&amp;</span> <span class="op">!</span><span class="self">self</span>.<span class="ident">props</span>.<span class="ident">label</span>.<span class="ident">is_empty</span>() {
-                          <span class="macro">html</span><span class="macro">!</span> { <span class="op">&lt;</span><span class="op">&gt;</span>{<span class="self">self</span>.<span class="ident">props</span>.<span class="ident">label</span>.<span class="ident">clone</span>()}<span class="op">&lt;</span><span class="op">/</span><span class="op">&gt;</span> }
+                      <span class="kw">if</span> <span class="self">self</span>.<span class="ident">props</span>.<span class="ident">label_position</span> <span class="op">=</span><span class="op">=</span> <span class="ident">ButtonLabelPosition::Left</span> <span class="op">&amp;&amp;</span> <span class="op">!</span><span class="self">self</span>.<span class="ident">props</span>.<span class="ident">label</span>.<span class="ident">is_empty</span>() {
+                          <span class="macro">html!</span> { <span class="op">&lt;</span><span class="op">&gt;</span>{<span class="self">self</span>.<span class="ident">props</span>.<span class="ident">label</span>.<span class="ident">clone</span>()}<span class="op">&lt;</span><span class="op">/</span><span class="op">&gt;</span> }
                       } <span class="kw">else</span> {
-                          <span class="macro">html</span><span class="macro">!</span> {}
+                          <span class="macro">html!</span> {}
                       }
                   }
                   <span class="op">&lt;</span><span class="ident">button</span>
                     <span class="kw-2">ref</span><span class="op">=</span><span class="self">self</span>.<span class="ident">button_ref</span>.<span class="ident">clone</span>()
-                    <span class="ident">class</span><span class="op">=</span><span class="macro">classes</span><span class="macro">!</span>(<span class="ident">button_classes</span>.<span class="ident">as_slice</span>())
+                    <span class="ident">class</span><span class="op">=</span><span class="macro">classes!</span>(<span class="ident">button_classes</span>.<span class="ident">as_slice</span>())
                     <span class="ident">aria</span><span class="op">-</span><span class="ident">pressed</span><span class="op">=</span><span class="ident">aria_pressed</span>
                     <span class="ident">disabled</span><span class="op">=</span><span class="self">self</span>.<span class="ident">props</span>.<span class="ident">disabled</span>
                     <span class="ident">tabindex</span><span class="op">=</span><span class="ident">tab_index</span>
@@ -625,22 +625,22 @@
                     {<span class="self">self</span>.<span class="ident">props</span>.<span class="ident">icon</span>.<span class="ident">clone</span>()}
                     {
                         <span class="kw">match</span> <span class="self">self</span>.<span class="ident">props</span>.<span class="ident">content</span> {
-                            <span class="prelude-val">Some</span>(<span class="kw-2">ref</span> <span class="ident">content</span>) <span class="op">=</span><span class="op">&gt;</span> <span class="macro">html</span><span class="macro">!</span> { <span class="ident">content</span>.<span class="ident">clone</span>() },
-                            <span class="prelude-val">None</span> <span class="op">=</span><span class="op">&gt;</span> <span class="macro">html</span><span class="macro">!</span> {}
+                            <span class="prelude-val">Some</span>(<span class="kw-2">ref</span> <span class="ident">content</span>) <span class="op">=</span><span class="op">&gt;</span> <span class="macro">html!</span> { <span class="ident">content</span>.<span class="ident">clone</span>() },
+                            <span class="prelude-val">None</span> <span class="op">=</span><span class="op">&gt;</span> <span class="macro">html!</span> {}
                         }
                     }
                   <span class="op">&lt;</span><span class="op">/</span><span class="ident">button</span><span class="op">&gt;</span>
                   {
-                      <span class="kw">if</span> <span class="self">self</span>.<span class="ident">props</span>.<span class="ident">label_position</span> <span class="op">=</span><span class="op">=</span> <span class="ident">ButtonLabelPosition</span>::<span class="ident">Right</span> <span class="op">&amp;&amp;</span> <span class="op">!</span><span class="self">self</span>.<span class="ident">props</span>.<span class="ident">label</span>.<span class="ident">is_empty</span>() {
-                          <span class="macro">html</span><span class="macro">!</span> { <span class="op">&lt;</span><span class="op">&gt;</span>{<span class="self">self</span>.<span class="ident">props</span>.<span class="ident">label</span>.<span class="ident">clone</span>()}<span class="op">&lt;</span><span class="op">/</span><span class="op">&gt;</span> }
+                      <span class="kw">if</span> <span class="self">self</span>.<span class="ident">props</span>.<span class="ident">label_position</span> <span class="op">=</span><span class="op">=</span> <span class="ident">ButtonLabelPosition::Right</span> <span class="op">&amp;&amp;</span> <span class="op">!</span><span class="self">self</span>.<span class="ident">props</span>.<span class="ident">label</span>.<span class="ident">is_empty</span>() {
+                          <span class="macro">html!</span> { <span class="op">&lt;</span><span class="op">&gt;</span>{<span class="self">self</span>.<span class="ident">props</span>.<span class="ident">label</span>.<span class="ident">clone</span>()}<span class="op">&lt;</span><span class="op">/</span><span class="op">&gt;</span> }
                       } <span class="kw">else</span> {
-                          <span class="macro">html</span><span class="macro">!</span> {}
+                          <span class="macro">html!</span> {}
                       }
                   }
                 <span class="op">&lt;</span><span class="op">/</span>@<span class="op">&gt;</span>
             }
         } <span class="kw">else</span> {
-           <span class="kw">let</span> <span class="ident">classes</span> <span class="op">=</span> <span class="macro">cx</span><span class="macro">!</span>(
+           <span class="kw">let</span> <span class="ident">classes</span> <span class="op">=</span> <span class="macro">cx!</span>(
                 <span class="ident">use_str</span>(<span class="string">&quot;ui&quot;</span>),
                 <span class="self">self</span>.<span class="ident">props</span>.<span class="ident">derive_base_classes</span>(),
                 <span class="self">self</span>.<span class="ident">props</span>.<span class="ident">derive_wrapper_classes</span>(),
@@ -650,10 +650,10 @@
             );
 
 
-            <span class="macro">html</span><span class="macro">!</span>{
+            <span class="macro">html!</span>{
                 <span class="op">&lt;</span>@{ <span class="ident">root_element</span> }
-                  <span class="ident">class</span><span class="op">=</span><span class="macro">classes</span><span class="macro">!</span>(<span class="ident">classes</span>.<span class="ident">as_slice</span>())
-                  <span class="ident">aria</span><span class="op">-</span><span class="ident">pressed</span><span class="op">=</span>{ <span class="kw">if</span> <span class="self">self</span>.<span class="ident">props</span>.<span class="ident">toggle</span> { <span class="prelude-val">Some</span>(<span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;{}&quot;</span>, <span class="self">self</span>.<span class="ident">props</span>.<span class="ident">active</span>)) } <span class="kw">else</span> { <span class="prelude-val">None</span> } }
+                  <span class="ident">class</span><span class="op">=</span><span class="macro">classes!</span>(<span class="ident">classes</span>.<span class="ident">as_slice</span>())
+                  <span class="ident">aria</span><span class="op">-</span><span class="ident">pressed</span><span class="op">=</span>{ <span class="kw">if</span> <span class="self">self</span>.<span class="ident">props</span>.<span class="ident">toggle</span> { <span class="prelude-val">Some</span>(<span class="macro">format!</span>(<span class="string">&quot;{}&quot;</span>, <span class="self">self</span>.<span class="ident">props</span>.<span class="ident">active</span>)) } <span class="kw">else</span> { <span class="prelude-val">None</span> } }
                   <span class="ident">disabled</span><span class="op">=</span><span class="self">self</span>.<span class="ident">props</span>.<span class="ident">disabled</span>
                   <span class="ident">onclick</span><span class="op">=</span><span class="self">self</span>.<span class="ident">link</span>.<span class="ident">callback</span>(<span class="op">|</span><span class="ident">e</span><span class="op">|</span> <span class="ident">e</span>)
                   <span class="ident">role</span><span class="op">=</span><span class="self">self</span>.<span class="ident">props</span>.<span class="ident">get_aria_role</span>()
@@ -661,15 +661,15 @@
                 <span class="op">&gt;</span>
                   {
                       <span class="kw">if</span> <span class="op">!</span><span class="self">self</span>.<span class="ident">props</span>.<span class="ident">children</span>.<span class="ident">is_empty</span>() {
-                          <span class="macro">html</span><span class="macro">!</span> { <span class="op">&lt;</span><span class="op">&gt;</span>{<span class="self">self</span>.<span class="ident">props</span>.<span class="ident">children</span>.<span class="ident">clone</span>()}<span class="op">&lt;</span><span class="op">/</span><span class="op">&gt;</span> }
+                          <span class="macro">html!</span> { <span class="op">&lt;</span><span class="op">&gt;</span>{<span class="self">self</span>.<span class="ident">props</span>.<span class="ident">children</span>.<span class="ident">clone</span>()}<span class="op">&lt;</span><span class="op">/</span><span class="op">&gt;</span> }
                       } <span class="kw">else</span> {
-                          <span class="macro">html</span><span class="macro">!</span> {
+                          <span class="macro">html!</span> {
                               <span class="op">&lt;</span><span class="op">&gt;</span>
                                 { <span class="self">self</span>.<span class="ident">props</span>.<span class="ident">icon</span>.<span class="ident">clone</span>() }
                                 {
                                     <span class="kw">match</span> <span class="self">self</span>.<span class="ident">props</span>.<span class="ident">content</span> {
-                                        <span class="prelude-val">Some</span>(<span class="kw-2">ref</span> <span class="ident">content</span>) <span class="op">=</span><span class="op">&gt;</span> <span class="macro">html</span><span class="macro">!</span> { <span class="ident">content</span>.<span class="ident">clone</span>() },
-                                        <span class="prelude-val">None</span> <span class="op">=</span><span class="op">&gt;</span> <span class="macro">html</span><span class="macro">!</span> {}
+                                        <span class="prelude-val">Some</span>(<span class="kw-2">ref</span> <span class="ident">content</span>) <span class="op">=</span><span class="op">&gt;</span> <span class="macro">html!</span> { <span class="ident">content</span>.<span class="ident">clone</span>() },
+                                        <span class="prelude-val">None</span> <span class="op">=</span><span class="op">&gt;</span> <span class="macro">html!</span> {}
                                     }
                                 }
                               <span class="op">&lt;</span><span class="op">/</span><span class="op">&gt;</span>
@@ -705,7 +705,7 @@
             ..
         } <span class="op">=</span> <span class="self">self</span>;
 
-        <span class="macro">cx</span><span class="macro">!</span>(
+        <span class="macro">cx!</span>(
             <span class="ident">use_option</span>(<span class="ident">color</span>),
             <span class="ident">use_option</span>(<span class="ident">size</span>),
             <span class="ident">use_key</span>(<span class="kw-2">*</span><span class="ident">active</span>, <span class="string">&quot;active&quot;</span>),
@@ -736,7 +736,7 @@
     }
 
     <span class="kw">fn</span> <span class="ident">derive_wrapper_classes</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span> {
-        <span class="macro">cx</span><span class="macro">!</span>(
+        <span class="macro">cx!</span>(
             <span class="ident">use_key</span>(<span class="self">self</span>.<span class="ident">disabled</span>, <span class="string">&quot;disabled&quot;</span>),
             <span class="ident">use_option_and_key</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">floated</span>, <span class="string">&quot;floated&quot;</span>)
         )
@@ -847,8 +847,8 @@
 
 <span class="kw">impl</span> <span class="ident">Default</span> <span class="kw">for</span> <span class="ident">ButtonLabelPosition</span> {
     <span class="kw">fn</span> <span class="ident">default</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
-        <span class="self">Self</span>::<span class="ident">Left</span>
+        <span class="self">Self</span><span class="ident">::Left</span>
     }
 }</pre></div>
-</section><section id="search" class="content hidden"></section><section class="footer"></section><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="yemantic_ui" data-search-js="../../../../search-index.js"></div>
+</section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="yemantic_ui" data-search-index-js="../../../../search-index.js" data-search-js="../../../../search.js"></div>
     <script src="../../../../main.js"></script><script src="../../../../source-script.js"></script><script src="../../../../source-files.js"></script></body></html>
